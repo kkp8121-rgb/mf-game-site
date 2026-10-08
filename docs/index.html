@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MF Game</title>
+<meta name="description" content="MF Game is an independent game studio in Korea building a pixel-art idle RPG and an AI-assisted pipeline for game-ready sprite animation.">
+<style>
+  :root {
+    --bg: #faf6ee; --surface: #fffdf8; --ink: #2b2420; --muted: #6e6259;
+    --line: #e6dccd; --accent: #c8642c; --accent-ink: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1b1714; --surface: #24201c; --ink: #f1e9df; --muted: #b3a69a; --line: #3a332d; --accent: #e88a4f; --accent-ink: #1b1714; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 56px 0 32px; border-bottom: 1px solid var(--line); }
+  .brand { font-weight: 800; letter-spacing: .02em; font-size: 15px; color: var(--accent); text-transform: uppercase; }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 10px 0 14px; }
+  h2 { font-size: 26px; margin: 0 0 6px; }
+  h3 { font-size: 17px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 680px; }
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); margin-bottom: 10px; }
+  img { display: block; max-width: 100%; height: auto; image-rendering: pixelated; border-radius: 6px; }
+  figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+  figcaption { font-size: 13px; color: var(--muted); padding: 8px 2px 0; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 22px; align-items: start; }
+  .wide { grid-column: 1 / -1; }
+  .stages { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+  .stage { display: grid; grid-template-columns: 220px 1fr; gap: 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stage .media { background: #fff; border-radius: 6px; display: flex; justify-content: center; align-items: center; min-height: 160px; }
+  .stage .media img { max-height: 220px; width: auto; }
+  .when { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .04em; }
+  .note { background: var(--surface); border-left: 3px solid var(--accent); padding: 14px 16px; border-radius: 0 8px 8px 0; margin-top: 22px; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  @media (max-width: 760px) {
+    .shots { grid-template-columns: 1fr; }
+    .stage { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">MF Game</div>
+    <h1>Small studio, handmade-feeling pixel games.</h1>
+    <p class="lead">MF Game is an independent game studio in Korea. We are building a pixel-art idle RPG and, alongside it, an AI-assisted pipeline that turns character designs into sprite animation clean enough to ship in a game.</p>
+  </div>
+</header>
+
+<main>
+  <section id="lantern-mage">
+    <div class="wrap">
+      <span class="tag">In development</span>
+      <h2>Lantern Mage Idle</h2>
+      <p>An idle RPG about an apprentice witch who travels from region to region with her lantern, hunting monsters, passing trials set by senior witches and growing stronger while you are away. It is built for phones in portrait mode, with Korean, English, Japanese and Traditional Chinese text.</p>
+      <p>The core loop is already playable: auto-hunting across regions, boss encounters, familiars, spells, equipment, records and the first-time tutorial. We are now polishing the opening hours and the overall pacing.</p>
+      <div class="shots">
+        <figure><img src="img/lmi-hunt.png" alt="The apprentice witch hunting a pack of marsh monsters, with the upgrade panel below" width="640" height="1024" loading="lazy"><figcaption>Hunting in the reed marsh (Korean build)</figcaption></figure>
+        <figure><img src="img/lmi-equipment.png" alt="Late-game volcanic region with the equipment screen" width="390" height="844" loading="lazy"><figcaption>Late-game region and gear (English build)</figcaption></figure>
+        <figure><img src="img/lmi-boss.png" alt="The witch facing a giant mossy turtle boss" width="640" height="560" loading="lazy"><figcaption>Region boss encounter</figcaption></figure>
+        <figure class="wide"><img src="img/lmi-duel.png" alt="A senior witch strikes the apprentice with her broom during a trial" width="960" height="301" loading="lazy"><figcaption>A trial against a senior witch</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="sprite-pipeline">
+    <div class="wrap">
+      <span class="tag">R&amp;D</span>
+      <h2>AI Pixel Sprite Pipeline</h2>
+      <p>Hand-animating every frame is the most expensive part of a 2D game. We are building a pipeline that takes a character design and a reference motion and produces frame-by-frame sprite animation, then checks the result frame by frame before it can be used. The goal is simple: output that goes straight into a game as a resource, not a pretty preview.</p>
+      <p>Below is how the output has improved since we started, using fan-art versions of well-known characters as a test set.</p>
+      <ol class="stages">
+        <li class="stage">
+          <div class="media"><img src="img/apg-1-early.gif" alt="Early traced sprite, idle loop" width="400" height="400" loading="lazy"></div>
+          <div><div class="when">Stage 1 · late August</div><h3>First traced sprites</h3><p>Motion followed the reference closely, but the drawing was rough: edges were noisy, details drifted between frames and the result was not usable in a game.</p></div>
+        </li>
+        <li class="stage">
+          <div class="media"><img src="img/apg-2-sequence.gif" alt="Idle loop drawn as one continuous sequence" width="200" height="256" loading="lazy"></div>
+          <div><div class="when">Stage 2 · mid September</div><h3>Whole actions drawn as one sequence</h3><p>Instead of drawing frames one by one, each action is drawn as a single continuous sheet with a fixed camera and fixed proportions. Drawing quality jumped, and the character stopped growing or shrinking from frame to frame.</p></div>
+        </li>
+        <li class="stage">
+          <div class="media"><img src="img/apg-3-idle.gif" alt="Approved idle animation" width="442" height="492" loading="lazy"></div>
+          <div><div class="when">Stage 3 · late September</div><h3>First animation approved as a game resource</h3><p>Clean transparent edges, a stable silhouette and exact frame timing. This was the first set we accepted as ready to drop into a game.</p></div>
+        </li>
+        <li class="stage">
+          <div class="media"><img src="img/apg-4-run.gif" alt="Approved run cycle" width="840" height="590" loading="lazy"></div>
+          <div><div class="when">Stage 4 · end of September</div><h3>Movement that holds together</h3><p>A full run cycle with consistent feet, hair and accessories in every frame, approved under the same checks.</p></div>
+        </li>
+        <li class="stage">
+          <div class="media"><img src="img/apg-5-signature.gif" alt="Signature move candidate for another character" width="420" height="295" loading="lazy"></div>
+          <div><div class="when">Stage 5 · October</div><h3>Scaling to a roster</h3><p>The same process is now being carried across a larger cast of characters, including signature moves with props. These are still under review.</p></div>
+        </li>
+      </ol>
+      <div class="note">
+        <p><strong>Why not just pull frames from video?</strong> We know that generating a video and extracting frames from it is the fastest route today. We are deliberately taking this path instead: each action is drawn at an exact frame count and timing, with clean transparent edges, so the result works as a sprite without manual cleanup.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-we-work">
+    <div class="wrap">
+      <h2>How we work</h2>
+      <p>MF Game is a one-person studio that works with AI coding agents every day. Agents implement features, write and run tests, capture screenshots for visual review, and hand work over between sessions, while design decisions and final quality calls stay with the founder.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>MF Game</strong> · Republic of Korea · <a href="mailto:contact@mf-game.com">contact@mf-game.com</a></p>
+    <p>Characters shown in the sprite pipeline section are fan art made for research and testing and belong to their original creators.</p>
+  </div>
+</footer>
+</body>
+</html>
